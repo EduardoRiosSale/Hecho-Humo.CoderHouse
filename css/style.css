@@ -1,0 +1,45 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image:url(../Imagen/Hecho\ Humo\ 2.jpg);
+    background-size: cover;
+    color: yellow;
+}
+
+/* barra de inicio */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header img {
+    display: grid;
+    width: auto;
+    height: 150px;
+    filter: brightness(1.1);
+    
+}
+header div nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+    list-style: none;
+}
+
+a{
+    color: yellow;
+}
+
+video{
+    margin: 50px;
+    width: 500px;
+    height: 800px;
+    
+}
