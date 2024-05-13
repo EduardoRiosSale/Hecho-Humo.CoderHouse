@@ -8,6 +8,7 @@
 body{
     background-image:url(../Imagen/Hecho\ Humo\ 2.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     color: yellow;
 }
 
@@ -18,9 +19,10 @@ header{
     align-items: center;
 }
 header img {
-    display: grid;
-    width: auto;
-    height: 150px;
+    display: flex;
+    flex-direction:row;
+    width: 100px;
+    height: 75px;
     filter: brightness(1.1);
     
 }
@@ -35,11 +37,12 @@ header div nav ul {
 
 a{
     color: yellow;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
 }
 
 video{
     margin: 50px;
-    width: 500px;
-    height: 800px;
+    height: 350px;
     
 }
