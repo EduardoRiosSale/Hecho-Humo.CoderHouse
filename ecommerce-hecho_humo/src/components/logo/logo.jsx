@@ -1,4 +1,4 @@
-import  hechohumo2  from "../img/hechohumo2";
+import  hechohumo2  from "../img/hechohumo2.png";
 
 
 const Logo = () => {
