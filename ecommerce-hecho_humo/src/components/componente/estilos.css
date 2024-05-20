@@ -1,0 +1,28 @@
+.btn{
+    display: flex;
+    flex-direction:row;
+    gap: 20px;
+    margin: 5px;
+    margin-bottom: 500px;
+    margin-left: 80px;
+    align-items: center;
+
+}
+
+h3{
+    color: yellow;
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    color: red;
+}
+body{
+    background-color: white;
+    background-image: url(../img/hechohumo.jpg);
+    background-size: cover;
+}
