@@ -1,17 +1,23 @@
-import { getAllProducts } from '../../data/items';
+import { getProductsByCategory } from '../../data/items';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-function ItemListContainer() {
+function ItemList() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    
+    const { idCategory } = useParams();
+    const params = useParams();
+    console.log(params)
+
+    console.log(idCategory)
 
 useEffect(() => {
         setIsLoading(true);
         setError(null);
 
-        getAllProducts()
+        getProductsByCategory(idCategory)
             .then(res => {
                 setProducts(res);
                 setIsLoading(false);
@@ -20,7 +26,7 @@ useEffect(() => {
                 setError(err);
                 setIsLoading(false);
             });
-    }, []);
+    }, [idCategory]);
 
     if (isLoading) {
         return <div>Cargando productos...</div>;
@@ -32,7 +38,7 @@ useEffect(() => {
 
     return (
         <div>
-            <h1>Pagina Principal</h1>
+            <h1>{idCategory ? `Categoria: ${idCategory}` : 'Pagina Principal'}</h1>
             <h2>Productos</h2>
             {products.length > 0 ? (
                 products.map(product => (
@@ -56,4 +62,4 @@ useEffect(() => {
     );
 }
 
-export default ItemListContainer;
+export default ItemList;

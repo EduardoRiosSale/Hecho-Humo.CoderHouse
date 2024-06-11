@@ -1,32 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .barra{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
-    margin-bottom: 450px;
-    gap: 10px;
-    
+    margin: 0;
+    padding: 0;
 }
 
 .btn{
     display: flex;
     flex-direction:row;
-    gap: 20px;
+    align-items:center;
+    align-self: center;
+    gap: 0px;
+    
 }
-
-h2{
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    color: red;
-}
-body{
-    background-color: white;
+.boton{
+    justify-content: center;
+    margin: 0.5rem;
+    background-color:black;
     background-image: url(../img/hechohumo.jpg);
     background-size: cover;
-}
+    color: #F9C200;
+    font-size:x-small;
+    font-family:cursive;
+    height: 80px;
+    width: 80px;
 
+}
+h1{
+    color: #F9C200;
+    border-radius: 10px;
+    
+    
+}
+body{
+    align-items: center;
+    background-color: rgb(22, 22, 22);
+    background-image: url(../img/hechohumo.jpg);
+    background-size:contain;
+    text-align: center;
+    
+    
+}
+.boton :hover{
+    color: #F9C200;
+;
+    
+
+}
 .img{
     width: 80px;
     height: 80px;
+    margin: 15px;
+    
 }
+
