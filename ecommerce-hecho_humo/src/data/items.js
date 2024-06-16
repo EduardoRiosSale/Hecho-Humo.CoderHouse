@@ -1,5 +1,7 @@
 import clipper from '../components/img/clipper.jpg';
 import ocb from '../components/img/ocb.jpg';
+import reprocann from '../components/img/reprocann.jpg';
+
 
 const items = [
     {
@@ -161,6 +163,14 @@ const items = [
         stock: '3 unidades disponibles',
         precio: 200,
         img: "https://imagenesmayorista.com.ar/19179-21554-thickbox/cenicero-ceramica-river-.jpg"
+    },
+    {
+        id: 21,
+        categoria: "Reprocan",
+        descripcion: 'River',
+        stock: '3 unidades disponibles',
+        precio: 200,
+        img: reprocann,
     }
 ];
 
@@ -178,6 +188,16 @@ export const getProductsByCategory = (categoria) => {
 export const getAllProducts = () => {
     return new Promise((resolve, reject) => {
         const listado = items;
+        setTimeout(() => {
+            listado.length > 0 ? resolve(listado) : reject("No hay datos");
+        }, 1000);
+        console.log(listado)
+    });
+};
+
+export const getUnidad = (id) => {
+    return new Promise((resolve, reject) => {
+        const listado = id !== "Productos" ? items.filter(unProducto => unProducto.id === id) : items;
         setTimeout(() => {
             listado.length > 0 ? resolve(listado) : reject("No hay datos");
         }, 1000);

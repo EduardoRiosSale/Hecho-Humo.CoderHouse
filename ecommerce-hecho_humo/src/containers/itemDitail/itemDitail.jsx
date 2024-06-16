@@ -1,25 +1,24 @@
-import { getProductsByCategory } from '../../data/items';
+import { getUnidad } from '../../data/items';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
-import { Link } from 'react-router-dom';
 
-function ItemList() {
+function ItemDitail() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     
-    const { idCategory } = useParams();
+    const { idItem } = useParams();
     const params = useParams();
     console.log(params)
 
-    console.log(idCategory)
+    console.log(idItem)
 
 useEffect(() => {
         setIsLoading(true);
         setError(null);
 
-        getProductsByCategory(idCategory)
+        getUnidad(idItem)
             .then(res => {
                 setProducts(res);
                 setIsLoading(false);
@@ -28,7 +27,7 @@ useEffect(() => {
                 setError(err);
                 setIsLoading(false);
             });
-    }, [idCategory]);
+    }, [idItem]);
 
     if (isLoading) {
         return <div>
@@ -43,7 +42,7 @@ useEffect(() => {
 
     return (
         <div>
-            <h1>{idCategory ? idCategory : 'Productos'}</h1>
+            <h1>{idItem ? idItem : 'Productos'}</h1>
             <h2>Productos</h2>
             {products.length > 0 ? (
                 products.map(product => (
@@ -58,9 +57,6 @@ useEffect(() => {
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <p><strong>Stock:</strong> {product.stock}</p>
-                        <Link to={"/Category/id"}>
-                        <p>Ver mas</p>
-                        </Link>
                     </div>
                 ))
             ) : (
@@ -70,4 +66,4 @@ useEffect(() => {
     );
 }
 
-export default ItemList;
+export default ItemDitail;

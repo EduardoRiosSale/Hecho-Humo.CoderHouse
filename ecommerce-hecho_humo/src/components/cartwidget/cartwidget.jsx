@@ -1,11 +1,12 @@
-import React from 'react'
-import { Avatar, Badge, Space } from 'antd'
-
+import { Badge } from 'antd';
+import { ShoppingCartOutlined } from '@ant-design/icons'
 const CartWidget = () => {
     return(
-        <Badge count={4}>
-        <Avatar shape="square" size="large" />
+        <div>
+        <Badge count={1} >
+        <ShoppingCartOutlined style={{width: "30px", color: "white"}}/>
     </Badge>
+    </div>
     )
 }
 

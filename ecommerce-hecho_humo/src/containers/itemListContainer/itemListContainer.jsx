@@ -1,6 +1,8 @@
 import { getAllProducts } from '../../data/items';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import hechohumo2 from '../../components/img/hechohumo2.png'
+
 
 function ItemListContainer() {
     const [products, setProducts] = useState([]);
@@ -23,7 +25,10 @@ useEffect(() => {
     }, []);
 
     if (isLoading) {
-        return <div>Cargando productos...</div>;
+        return <div>
+        <div><img className='img' src={hechohumo2} /></div>
+        Cargando productos...
+        </div>;
     }
 
     if (error) {
@@ -31,22 +36,27 @@ useEffect(() => {
     }
 
     return (
-        <div>
-            <h1>Pagina Principal</h1>
-            <h2>Productos</h2>
+        <div style={{}}>
+            <h1>Productos</h1>
             {products.length > 0 ? (
                 products.map(product => (
-                    <div key={product.id} style={{ marginBottom: '20px', display: "flex", flexDirection:"row",  }}>
+                    <div key={product.id} style={{ marginBottom: '30px'}}>
+                    
+                        <div style={{}}>
                         <img
                             src={product.img}
-                            alt={product.producto}
-                            style={{ width: '150px', height: '150px' }}
+                            style={{ width: '150px', height: '150px'}}
                             onError={(e) => { e.target.onerror = null; e.target.src = 'path/to/placeholder/image.jpg'; }}
                         />
+                        
                         <p><strong>Producto:</strong> {product.categoria}</p>
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <p><strong>Stock:</strong> {product.stock}</p>
+                        <Link to={"/id"}>
+                        <p>Ver mas</p>
+                        </Link>
+                        </div>
                     </div>
                 ))
             ) : (

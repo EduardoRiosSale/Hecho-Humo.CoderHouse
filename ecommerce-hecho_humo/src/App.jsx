@@ -13,6 +13,7 @@ function App() {
       <nav>
         <Navbar />
         <Routes>
+        <Route path='/category/id' element={<ItemList />}/>
           <Route path='/category/:idCategory' element={<ItemList />}/>
           <Route path='/' element={<ItemListContainer />}/>
         </Routes>

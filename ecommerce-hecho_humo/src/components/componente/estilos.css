@@ -4,27 +4,22 @@
     box-sizing: border-box;
 }
 
-.barra{
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-}
-
 .btn{
     display: flex;
-    flex-direction:row;
+    
     align-items:center;
     align-self: center;
     gap: 0px;
     
 }
+
+
+
 .boton{
     justify-content: center;
-    margin: 0.5rem;
-    background-color:black;
+    margin: 1px;
     background-image: url(../img/hechohumo.jpg);
-    background-size: cover;
+    background-size: contain;
     color: #F9C200;
     font-size:x-small;
     font-family:cursive;
@@ -34,18 +29,17 @@
 }
 h1{
     color: #F9C200;
-    border-radius: 10px;
-    
-    
 }
 body{
-    align-items: center;
+    
+    justify-content: center;
     background-color: rgb(22, 22, 22);
     background-image: url(../img/hechohumo.jpg);
-    background-size:contain;
+    background-size: contain;
+    align-content: center;
     text-align: center;
     
-    
+    color: aliceblue;
 }
 .boton :hover{
     color: #F9C200;
@@ -56,7 +50,5 @@ body{
 .img{
     width: 80px;
     height: 80px;
-    margin: 15px;
-    
 }
 
