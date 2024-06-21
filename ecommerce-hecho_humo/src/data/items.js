@@ -196,8 +196,10 @@ export const getAllProducts = () => {
 };
 
 export const getUnidad = (id) => {
+    console.log(id)
     return new Promise((resolve, reject) => {
-        const listado = id !== "Productos" ? items.filter(unProducto => unProducto.id === id) : items;
+        const listado = items.filter(x => x.id === id)
+        console.log(listado)
         setTimeout(() => {
             listado.length > 0 ? resolve(listado) : reject("No hay datos");
         }, 1000);

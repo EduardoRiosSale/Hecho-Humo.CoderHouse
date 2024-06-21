@@ -15,8 +15,8 @@ export default class App extends Component {
                     <Logo />
                 </Link>
                 <Form  display="flex" p="2" my="2 lg-0" >
-          <Form.Input type="search" placeholder="Buscador" mr="sm-3" />
-          <Button outline warning my="2 sm-0">Search</Button>
+            <Form.Input type="search" placeholder="Buscador" mr="sm-3" />
+            <Button outline warning my="2 sm-0">Search</Button>
         </Form>
                 
         <Collapse id="navbarToggleExternalContent">

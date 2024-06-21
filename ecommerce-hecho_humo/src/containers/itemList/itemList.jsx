@@ -58,7 +58,7 @@ useEffect(() => {
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <p><strong>Stock:</strong> {product.stock}</p>
-                        <Link to={"/Category/id"}>
+                        <Link to={`/Unidad/${product.id}`}>
                         <p>Ver mas</p>
                         </Link>
                     </div>

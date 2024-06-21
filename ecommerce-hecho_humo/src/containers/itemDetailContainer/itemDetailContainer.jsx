@@ -3,22 +3,20 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
 
-function ItemDitail() {
+function ItemDetailContainer() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     
-    const { idItem } = useParams();
-    const params = useParams();
-    console.log(params)
+    const { id } = useParams();
 
-    console.log(idItem)
+    console.log(id)
 
 useEffect(() => {
         setIsLoading(true);
         setError(null);
 
-        getUnidad(idItem)
+        getUnidad(parseInt(id))
             .then(res => {
                 setProducts(res);
                 setIsLoading(false);
@@ -27,7 +25,7 @@ useEffect(() => {
                 setError(err);
                 setIsLoading(false);
             });
-    }, [idItem]);
+    }, [id]);
 
     if (isLoading) {
         return <div>
@@ -42,7 +40,7 @@ useEffect(() => {
 
     return (
         <div>
-            <h1>{idItem ? idItem : 'Productos'}</h1>
+            
             <h2>Productos</h2>
             {products.length > 0 ? (
                 products.map(product => (
@@ -66,4 +64,4 @@ useEffect(() => {
     );
 }
 
-export default ItemDitail;
+export default ItemDetailContainer;

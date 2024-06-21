@@ -42,18 +42,18 @@ useEffect(() => {
                 products.map(product => (
                     <div key={product.id} style={{ marginBottom: '30px'}}>
                     
-                        <div style={{}}>
+                        <div>
                         <img
                             src={product.img}
                             style={{ width: '150px', height: '150px'}}
                             onError={(e) => { e.target.onerror = null; e.target.src = 'path/to/placeholder/image.jpg'; }}
                         />
                         
-                        <p><strong>Producto:</strong> {product.categoria}</p>
-                        <p><strong>Descripción:</strong> {product.descripcion}</p>
-                        <p><strong>Precio:</strong> {product.precio}</p>
-                        <p><strong>Stock:</strong> {product.stock}</p>
-                        <Link to={"/id"}>
+                        <p>Producto:{product.categoria}</p>
+                        <p>Descripción:{product.descripcion}</p>
+                        <p>Precio: {product.precio}</p>
+                        <p>Stock: {product.stock}</p>
+                        <Link to={`/Unidad/${product.id}`}>
                         <p>Ver mas</p>
                         </Link>
                         </div>
