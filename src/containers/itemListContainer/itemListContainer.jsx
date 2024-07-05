@@ -43,14 +43,14 @@ const ItemListContainer = () => {
 
     return (
         <div className='productos'>
-            <h1 style={{display: "flex",color: "#F9C200"}}>Productos</h1>
+            <h1 style={{display: "flex",color: "#F9C200", justifyContent: "center"}}>Productos</h1>
             {products.length > 0 ? (
                 products.map(product => (
                     <div key={product.id}>
-                        <div className='lista'>
+                        <div className='lista' style={{justifyContent: "center"}}>
                             <img
                                 src={product.img}
-                                style={{ width: '100px', height: '100px' }}
+                                style={{ width: '100px', height: '100px', justifyContent: "center" }}
                                 onError={(e) => { e.target.src = 'path/to/placeholder/image.jpg'; }}
                                 alt={product.categoria}
                             />

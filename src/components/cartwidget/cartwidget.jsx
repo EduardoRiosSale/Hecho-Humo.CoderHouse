@@ -1,13 +1,21 @@
+import React from 'react';
 import { Badge } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons'
-const CartWidget = () => {
-    return(
-        <div>
-        <Badge count={1} >
-        <ShoppingCartOutlined style={{width: "30px", color: "white", margin: "10px"}}/>
-    </Badge>
-    </div>
-    )
-}
+import { Link } from 'react-router-dom';
+import { ShoppingCartOutlined } from '@ant-design/icons';
 
-export default CartWidget
+
+const CartWidget = () => {
+    
+
+    return (
+        <div>
+            <Link to="/carrito">
+                <Badge count={1}>
+                    <ShoppingCartOutlined style={{ fontSize: '30px', color: '#ffffff', margin: '10px' }} />
+                </Badge>
+            </Link>
+        </div>
+    );
+};
+
+export default CartWidget;
