@@ -7,6 +7,7 @@ import ItemDetail from './containers/itemDetail/itemDetail';
 import Items from './containers/items/items'
 import BuscadorItem from './containers/practica/buscador';
 
+
 function App() {
 
   return (

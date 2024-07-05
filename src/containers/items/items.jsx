@@ -1,4 +1,5 @@
 import ItemList from '../itemList/itemList';
+import "../../components/componente/estilos.css"
 
 function Items() {
     

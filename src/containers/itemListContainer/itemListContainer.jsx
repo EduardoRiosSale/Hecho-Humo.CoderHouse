@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png';
 import { getAllProducts } from '../../data/items';
 import Contador from '../../components/contador/contador';
+import "../../components/componente/estilos.css"
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);

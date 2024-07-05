@@ -5,7 +5,7 @@ import Logo from "../logo/logo";
 import { Link } from "react-router-dom";
 import Insta from "../logo/instagram";
 import Whatsapp from "../logo/wp";
-
+import "../../components/componente/estilos.css"
 
 export default class App extends Component {
     render() {

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
 import { Link } from 'react-router-dom';
 import Contador from '../../components/contador/contador';
+import "../../components/componente/estilos.css"
 
 function ItemList() {
     const [products, setProducts] = useState([]);
