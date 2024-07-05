@@ -56,7 +56,7 @@ useEffect(() => {
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <Contador />
-                        <button style={{color: "#F9C200", borderRadius: "50px", borderColor: "#F9C200" }}>Agregar Producto </button>
+                        <button className='botoncarrito'>Agregar Producto </button>
                         <p><strong>Stock:</strong> {product.stock}</p>
                         <p><strong></strong> {product.info}</p>
                     </div>

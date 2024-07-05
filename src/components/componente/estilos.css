@@ -83,3 +83,9 @@ body{
     background-size: contain;
     margin-bottom: 30px;
 }
+
+.botoncarrito{
+    color: #F9C200; 
+    border-Radius: 50px; 
+    border-color: #F9C200;
+}

@@ -57,7 +57,7 @@ const ItemListContainer = () => {
                             <div>Descripción: {product.descripcion}</div>
                             <div>Precio: ${product.precio}</div>
                             <Contador />
-                            <button style={{ color: "#F9C200", borderRadius: "30px", borderColor: "#F9C200" }}>Agregar Producto</button>
+                            <button className='botoncarrito'>Agregar Producto</button>
                             <p>Stock: {product.stock}</p>
                             <Link to={`/Unidad/${product.id}`}>
                                 <p style={{ color: "#F9C200" }}>Ver más</p>
