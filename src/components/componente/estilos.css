@@ -85,6 +85,9 @@ body{
 }
 
 .botoncarrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #F9C200; 
     border-Radius: 50px; 
     border-color: #F9C200;

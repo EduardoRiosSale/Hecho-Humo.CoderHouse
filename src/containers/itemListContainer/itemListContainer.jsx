@@ -47,7 +47,7 @@ const ItemListContainer = () => {
             {products.length > 0 ? (
                 products.map(product => (
                     <div key={product.id}>
-                        <div className='lista' style={{justifyContent: "center"}}>
+                        <div className='lista' style={{justifyContent: "center", display: "flex"}}>
                             <img
                                 src={product.img}
                                 style={{ width: '100px', height: '100px', justifyContent: "center" }}
