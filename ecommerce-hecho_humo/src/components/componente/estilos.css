@@ -19,12 +19,12 @@
     justify-content: center;
     margin: 1px;
     background-image: url(../img/hechohumo.jpg);
-    background-size: contain;
+    background-size: cover;
     color: #F9C200;
     font-size:x-small;
     font-family:cursive;
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
 
 }
 h1{
@@ -33,7 +33,7 @@ h1{
 body{
     
     justify-content: center;
-    background-color: rgb(22, 22, 22);
+    background-color: #000000;
     background-image: url(../img/hechohumo.jpg);
     background-size: contain;
     align-content: center;
@@ -48,7 +48,38 @@ body{
 
 }
 .img{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
+.contador{
+    border-radius: 50px;
+    width: 10px;
+    height: 25px;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #F9C200;
+    border-color: #F9C200;
+    border-top-style: ;
+}
+
+.lista{
+    display: flow-root;
+    border-color: dimgrey;
+    border-style: inset;
+    background-image: url();
+    background-size: contain;
+    margin-bottom: 30px;
+    
+}
+
+.Dlista{
+    display: flow-root;
+    border-color: dimgrey;
+    border-style: inset;
+    background-image: url(../img/Hechohumo3.png);
+    background-size: contain;
+    margin-bottom: 30px;
+}

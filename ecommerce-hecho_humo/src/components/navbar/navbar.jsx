@@ -11,17 +11,29 @@ export default class App extends Component {
     render() {
     return (
         <div>
+            <div style={{display: "flex", justifyContent: "center"}}>
             <Link to={'/'}>
                     <Logo />
                 </Link>
-                <Form  display="flex" p="2" my="2 lg-0" >
-            <Form.Input type="search" placeholder="Buscador" mr="sm-3" />
-            <Button outline warning my="2 sm-0">Search</Button>
-        </Form>
+                <Link to={'https://www.instagram.com/hechohumo.ok/'}>
+                    <Insta />
+                    </Link>
+                    <Link to={'https://wa.me/541168226178'}>
+                    <Whatsapp />
+                    </Link>
+                    </div>
+                
                 
         <Collapse id="navbarToggleExternalContent">
     <BDiv >
         <header>
+        <Form  display="flex" p="2" my="2 lg-1" >
+            <Form.Input type="" placeholder="Buscador" mr="sm-1" />
+            <Link to={"/"}>
+            <Button outline warning my="2 sm-0">Buscar</Button>
+            </Link>
+            <CartWidget />
+        </Form>
             <nav className="barra">
                 <div className="btn">
                     <Link to={'/'}>
@@ -39,12 +51,7 @@ export default class App extends Component {
                     <Link to={'/Category/Reprocan'}>
                         <button className="boton">Reprocan</button>
                     </Link>
-                    <Link to={'https://www.instagram.com/hechohumo.ok/'}>
-                    <Insta />
-                    </Link>
-                    <Link to={'https://www.instagram.com/hechohumo.ok/'}>
-                    <Whatsapp />
-                    </Link>
+
                     
                 </div>
             </nav>

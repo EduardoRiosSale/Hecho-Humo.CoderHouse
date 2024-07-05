@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
 import { Link } from 'react-router-dom';
+import Contador from '../../components/contador/contador';
 
 function ItemList() {
     const [products, setProducts] = useState([]);
@@ -42,25 +43,28 @@ useEffect(() => {
     }
 
     return (
-        <div>
-            <h1>{idCategory ? idCategory : 'Productos'}</h1>
-            <h2>Productos</h2>
+        <div className='productos'>
+            <h1>Productos</h1>
             {products.length > 0 ? (
                 products.map(product => (
-                    <div key={product.id} style={{ marginBottom: '30px'}}>
-                        <img
-                            src={product.img}
-                            alt={product.producto}
-                            style={{ width: '150px', height: '150px' }}
-                            onError={(e) => { e.target.onerror = null; e.target.src = 'path/to/placeholder/image.jpg'; }}
-                        />
-                        <p><strong>Producto:</strong> {product.categoria}</p>
-                        <p><strong>Descripción:</strong> {product.descripcion}</p>
-                        <p><strong>Precio:</strong> {product.precio}</p>
-                        <p><strong>Stock:</strong> {product.stock}</p>
-                        <Link to={`/Unidad/${product.id}`}>
-                        <p>Ver mas</p>
-                        </Link>
+                    <div key={product.id}>
+                        <div className='lista'>
+                            <img
+                                src={product.img}
+                                style={{ width: '100px', height: '100px' }}
+                                onError={(e) => { e.target.src = 'path/to/placeholder/image.jpg'; }}
+                                alt={product.categoria}
+                            />
+                            <div>Producto: {product.categoria}</div>
+                            <div>Descripción: {product.descripcion}</div>
+                            <div>Precio: ${product.precio}</div>
+                            <Contador />
+                            <button style={{ color: "#F9C200", borderRadius: "30px", borderColor: "#F9C200" }}>Agregar Producto</button>
+                            <p>Stock: {product.stock}</p>
+                            <Link to={`/Unidad/${product.id}`}>
+                                <p style={{ color: "#F9C200" }}>Ver más</p>
+                            </Link>
+                        </div>
                     </div>
                 ))
             ) : (
@@ -68,6 +72,6 @@ useEffect(() => {
             )}
         </div>
     );
-}
+};
 
 export default ItemList;

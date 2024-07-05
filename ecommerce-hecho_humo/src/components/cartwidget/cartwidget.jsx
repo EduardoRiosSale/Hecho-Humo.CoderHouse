@@ -4,7 +4,7 @@ const CartWidget = () => {
     return(
         <div>
         <Badge count={1} >
-        <ShoppingCartOutlined style={{width: "30px", color: "white"}}/>
+        <ShoppingCartOutlined style={{width: "30px", color: "white", margin: "10px"}}/>
     </Badge>
     </div>
     )

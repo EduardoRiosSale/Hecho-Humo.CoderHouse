@@ -1,23 +1,22 @@
-import { getUnidad } from '../../data/items';
+import { getBuscadorUnidad } from '../../data/items';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
-import Contador from '../../components/contador/contador';
 
-function ItemDetailContainer() {
+function BuscadorItem() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     
-    const { id } = useParams();
+    const { descripcion } = useParams();
 
-    console.log(id)
+    console.log(descripcion)
 
 useEffect(() => {
         setIsLoading(true);
         setError(null);
 
-        getUnidad(parseInt(id))
+        getBuscadorUnidad(descripcion)
             .then(res => {
                 setProducts(res);
                 setIsLoading(false);
@@ -26,7 +25,7 @@ useEffect(() => {
                 setError(err);
                 setIsLoading(false);
             });
-    }, [id]);
+    }, [descripcion]);
 
     if (isLoading) {
         return <div>
@@ -42,10 +41,10 @@ useEffect(() => {
     return (
         <div>
             
-            <h1>Productos</h1>
+            <h2>Productos</h2>
             {products.length > 0 ? (
                 products.map(product => (
-                    <div className='Dlista'>
+                    <div key={product.id} style={{ marginBottom: '30px'}}>
                         <img
                             src={product.img}
                             alt={product.producto}
@@ -55,10 +54,7 @@ useEffect(() => {
                         <p><strong>Producto:</strong> {product.categoria}</p>
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
-                        <Contador />
-                        <button style={{color: "#F9C200", borderRadius: "50px", borderColor: "#F9C200" }}>Agregar Producto </button>
                         <p><strong>Stock:</strong> {product.stock}</p>
-                        <p><strong></strong> {product.info}</p>
                     </div>
                 ))
             ) : (
@@ -68,4 +64,4 @@ useEffect(() => {
     );
 }
 
-export default ItemDetailContainer;
+export default BuscadorItem;

@@ -3,13 +3,13 @@ import ocb from '../components/img/ocb.jpg';
 import reprocann from '../components/img/reprocann.jpg';
 
 
-const items = [
+export const items = [
     {
         id: 1,
         categoria: "Ceniceros",
         descripcion: 'Cenicero comun',
-        stock: '3 unidades disponibles',
-        precio: 200,
+        stock: '12 unidades disponibles',
+        precio: 500,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4o4Oed-WbHfF9X0N8QdabHWnk-DYppAB_SQ&s"
     },
     {
@@ -167,10 +167,11 @@ const items = [
     {
         id: 21,
         categoria: "Reprocan",
-        descripcion: 'River',
-        stock: '3 unidades disponibles',
+        descripcion: 'Permiso para cultivar y transportar canabbis',
+        stock: 'sin limites',
         precio: 200,
         img: reprocann,
+        info: "Para más info comunicate con nosotros. ¡Te Esperamos!"
     }
 ];
 
@@ -199,6 +200,18 @@ export const getUnidad = (id) => {
     console.log(id)
     return new Promise((resolve, reject) => {
         const listado = items.filter(x => x.id === id)
+        console.log(listado)
+        setTimeout(() => {
+            listado.length > 0 ? resolve(listado) : reject("No hay datos");
+        }, 1000);
+        console.log(listado)
+    });
+};
+
+export const getBuscadorUnidad = (descripcion) => {
+    console.log(descripcion)
+    return new Promise((resolve, reject) => {
+        const listado = items.filter(x => x.descripcion === descripcion)
         console.log(listado)
         setTimeout(() => {
             listado.length > 0 ? resolve(listado) : reject("No hay datos");
