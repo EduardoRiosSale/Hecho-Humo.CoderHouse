@@ -42,7 +42,7 @@ const ItemListContainer = () => {
 
     return (
         <div className='productos'>
-            <h1>Productos</h1>
+            <h1 style={{display: "flex",color: "#F9C200"}}>Productos</h1>
             {products.length > 0 ? (
                 products.map(product => (
                     <div key={product.id}>
