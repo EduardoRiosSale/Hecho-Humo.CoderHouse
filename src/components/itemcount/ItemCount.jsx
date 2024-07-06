@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const Contador = () => {
-  const [contador, setContador] = useState(0);
+const itemCount = ({ handleAgregar }) => {
+  const [contador, setContador] = useState(1);
 
   const incrementar = () => {
     setContador(contador + 1);
@@ -21,9 +21,9 @@ const Contador = () => {
       <button className='contador' onClick={incrementar}> + </button>
       <button  className='contador' onClick={decrementar}> - </button>
       </div>
-      
+      <button className="botoncarrito" onClick={handleAgregar}>Agregar al carrito</button>
     </div>
   );
 };
 
-export default Contador;
+export default itemCount;

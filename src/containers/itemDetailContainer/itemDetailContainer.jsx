@@ -1,13 +1,34 @@
 import { getUnidad } from '../../data/items';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
 import "../../components/componente/estilos.css"
-import ItemCount from '../../components/itemcount/ItemCount';
+import ItemCount from '../../components/itemcount/ItemCount'
+import { CartContext } from '../../components/cartcontext/CartContext';
 
 
 
-function ItemDetailContainer() {
+
+function ItemDetailContainer({item}) {
+    
+    const { carrito, agregarAlCarrito } = useContext(CartContext);
+    console.log(carrito);
+
+    const [cantidad, setCantidad] = useState(5);
+
+    const handleRestar = () => {
+        cantidad > 1 && setCantidad(cantidad - 1)
+    }
+
+    const handleSumar = () => {
+        cantidad < item.stock && setCantidad(cantidad + 1)
+    }
+    const handleAgregar = () => {
+        const itemAgregado = {...item, cantidad}
+        console.log(itemAgregado)
+    }
+    
+
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -58,10 +79,11 @@ useEffect(() => {
                         <p><strong>Producto:</strong> {product.categoria}</p>
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
-                        <ItemCount />
-                        <button className='botoncarrito'>Agregar Producto </button>
                         <p><strong>Stock:</strong> {product.stock}</p>
                         <p><strong></strong> {product.info}</p>
+                        
+                        <ItemCount
+                        handleAgregar={() => { agregarAlCarrito(item, cantidad) }} />
                         
                     </div>
                 ))

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png';
 import { getAllProducts } from '../../data/items';
 import ItemCount from '../../components/itemcount/ItemCount';
@@ -57,8 +57,6 @@ const ItemListContainer = () => {
                             <div>Producto: {product.categoria}</div>
                             <div>Descripción: {product.descripcion}</div>
                             <div>Precio: ${product.precio}</div>
-                            <ItemCount />
-                            <button className='botoncarrito'>Agregar Producto</button>
                             <p>Stock: {product.stock}</p>
                             <Link to={`/Unidad/${product.id}`}>
                                 <p style={{ color: "#F9C200" }}>Ver más</p>
