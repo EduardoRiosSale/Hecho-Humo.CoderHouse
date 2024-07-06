@@ -31,7 +31,7 @@ useEffect(() => {
 
     if (isLoading) {
         return <div>
-            <div><img className='img' src={hechohumo2} /></div>
+            <div className='cargando'><img className='img' src={hechohumo2} /></div>
             Cargando productos...
             </div>;
     }
