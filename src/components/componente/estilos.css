@@ -23,8 +23,8 @@
     color: #F9C200;
     font-size:x-small;
     font-family:cursive;
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
 
 }
 h1{
@@ -45,13 +45,12 @@ body{
 }
 .boton :hover{
     color: #F9C200;
-;
     
 
 }
 .img{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
 }
 
 .contador{
@@ -79,6 +78,7 @@ body{
 }
 
 .Dlista{
+    justify-content: center;
     display: flow-root;
     border-color: dimgrey;
     border-style: inset;
