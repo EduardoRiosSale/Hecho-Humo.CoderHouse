@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react'
 import { Badge } from 'antd';
 import { Link } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
 
+
 const CartWidget = () => {
-    
 
     return (
         <div>

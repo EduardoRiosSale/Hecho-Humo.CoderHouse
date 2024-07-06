@@ -2,8 +2,10 @@ import { getUnidad } from '../../data/items';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
-import Contador from '../../components/contador/contador';
 import "../../components/componente/estilos.css"
+import ItemCount from '../../components/itemcount/ItemCount';
+
+
 
 function ItemDetailContainer() {
     const [products, setProducts] = useState([]);
@@ -56,10 +58,11 @@ useEffect(() => {
                         <p><strong>Producto:</strong> {product.categoria}</p>
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
-                        <Contador />
+                        <ItemCount />
                         <button className='botoncarrito'>Agregar Producto </button>
                         <p><strong>Stock:</strong> {product.stock}</p>
                         <p><strong></strong> {product.info}</p>
+                        
                     </div>
                 ))
             ) : (

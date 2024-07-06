@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
 import { Link } from 'react-router-dom';
-import Contador from '../../components/contador/contador';
+import ItemCount from '../../components/itemcount/ItemCount';
 import "../../components/componente/estilos.css"
 
 function ItemList() {
@@ -60,7 +60,7 @@ useEffect(() => {
                             <div>Producto: {product.categoria}</div>
                             <div>Descripción: {product.descripcion}</div>
                             <div>Precio: ${product.precio}</div>
-                            <Contador />
+                            <ItemCount />
                             <button className='botoncarrito'>Agregar Producto</button>
                             <p>Stock: {product.stock}</p>
                             <Link to={`/Unidad/${product.id}`}>
