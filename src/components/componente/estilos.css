@@ -63,7 +63,7 @@ body{
     display: flex;
     color: #F9C200;
     border-color: #F9C200;
-    border-top-style: ;
+    background-color: #000000;
 }
 
 .lista{
@@ -93,7 +93,7 @@ body{
 }
 
 .botoncarrito{
-    
+    background-color: #000000;
     justify-content: center;
     align-items: center;
     color: #F9C200; 
