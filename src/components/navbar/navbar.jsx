@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, Collapse, BDiv, Form, Button } from 'bootstrap-4-react';
+import { Navbar, Collapse, BDiv, Form, Button, BSpan } from 'bootstrap-4-react';
+
 import CartWidget from "../cartwidget/cartwidget";
 import Logo from "../logo/logo";
 import { Link } from "react-router-dom";
@@ -27,7 +28,7 @@ export default class App extends Component {
         <Collapse id="navbarToggleExternalContent">
     <BDiv >
         <header>
-        <Form  display="block" p="2" my="1 lg-2" mr="sm-2" >
+        <Form  display="flex" width="10" p="2" my="1 lg-2" mr="sm-2" >
             <Form.Input type="" placeholder= "Buscador" mr="sm-1" />
             <Link to={"/"}>
             <Button outline warning my="2 sm-0">Buscar</Button>
