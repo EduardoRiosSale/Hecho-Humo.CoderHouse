@@ -29,6 +29,8 @@
 }
 h1{
     color: #F9C200;
+    justify-content: center;
+    align-items: center;
 }
 body{
     
@@ -85,7 +87,7 @@ body{
 }
 
 .botoncarrito{
-    display: flex;
+    
     justify-content: center;
     align-items: center;
     color: #F9C200; 
