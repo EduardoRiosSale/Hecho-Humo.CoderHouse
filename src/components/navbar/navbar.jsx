@@ -27,8 +27,8 @@ export default class App extends Component {
         <Collapse id="navbarToggleExternalContent">
     <BDiv >
         <header>
-        <Form  display="flex" p="2" my="2 lg-1" >
-            <Form.Input type="" placeholder="Buscador" mr="sm-1" />
+        <Form  display="block" p="2" my="1 lg-2" mr="sm-2" >
+            <Form.Input type="" placeholder= "Buscador" mr="sm-1" />
             <Link to={"/"}>
             <Button outline warning my="2 sm-0">Buscar</Button>
             </Link>
