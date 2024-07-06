@@ -80,11 +80,9 @@ useEffect(() => {
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <p><strong>Stock:</strong> {product.stock}</p>
-                        <p><strong></strong> {product.info}</p>
-                        
                         <ItemCount
                         handleAgregar={() => { agregarAlCarrito(item, cantidad) }} />
-                        
+                        <p><strong></strong> {product.info}</p>
                     </div>
                 ))
             ) : (
