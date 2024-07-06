@@ -30,8 +30,8 @@ useEffect(() => {
     }, [id]);
 
     if (isLoading) {
-        return <div>
-            <div className='cargando'><img className='img' src={hechohumo2} /></div>
+        return <div className='cargando'>
+            <div ><img className='img' src={hechohumo2} /></div>
             Cargando productos...
             </div>;
     }

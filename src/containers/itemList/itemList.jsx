@@ -33,10 +33,10 @@ useEffect(() => {
     }, [idCategory]);
 
     if (isLoading) {
-        return <div>
-            <div className='cargando'>
+        return <div className='cargando'>
+            <div >
             <img className='img' src={hechohumo2} /></div>
-            Cargando productos...
+            <div>Cargando productos...</div>
             </div>;
     }
 
