@@ -16,7 +16,7 @@ const itemCount = ({ handleAgregar }) => {
   return (
       
     <div>
-      <p style={{justifyContent: "center"}}>Unidades: {contador}</p>
+      <p style={{display: "flex", alignContent:"center", alignItems:"center",justifyContent: "center"}}>Unidades: {contador}</p>
       <div style={{display: "flex", justifyContent: "center" }}>
       <button className='contador' onClick={incrementar}> + </button>
       <button  className='contador' onClick={decrementar}> - </button>
