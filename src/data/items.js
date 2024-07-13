@@ -1,6 +1,8 @@
+import { getDocs, limit, where } from 'firebase/firestore';
 import clipper from '../components/img/clipper.jpg';
 import ocb from '../components/img/ocb.jpg';
 import reprocann from '../components/img/reprocann.jpg';
+
 
 
 export const items = [
@@ -219,4 +221,6 @@ export const getBuscadorUnidad = (descripcion) => {
         console.log(listado)
     });
 };
+
+
 

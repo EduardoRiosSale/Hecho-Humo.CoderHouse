@@ -6,11 +6,11 @@ import { CartContext } from '../context/CartContext';
 
 
 const CartWidget = () => {
-const { cantidad } = useContext(CartContext)
+const { cart } = useContext(CartContext)
     return (
         <div>
             
-                <Badge count={cantidad}>
+                <Badge count={cart.length}>
                     <ShoppingCartOutlined style={{fontSize: '30px', color: '#ffffff', margin: '10px' }} />
                 </Badge>
             

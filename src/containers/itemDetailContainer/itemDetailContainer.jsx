@@ -5,7 +5,8 @@ import hechohumo2 from '../../components/img/hechohumo2.png'
 import "../../components/componente/estilos.css"
 import ItemCount from '../../components/itemcount/ItemCount'
 import { CartContext } from '../../components/context/CartContext';
-
+import { collection, doc, getDoc, getDocs, limit, query, where } from "firebase/firestore"
+import { db } from '../../firebase/client';
 
 
 
@@ -17,12 +18,11 @@ function ItemDetailContainer({}) {
     const { agregarAlCarrito } = useContext(CartContext)
     const { id } = useParams();
 
-    console.log(id)
+    
 
 useEffect(() => {
         setIsLoading(true);
         setError(null);
-
         getUnidad(parseInt(id))
             .then(res => {
                 setProducts(res);
@@ -32,7 +32,39 @@ useEffect(() => {
                 setError(err);
                 setIsLoading(false);
             });
-    }, [id]);
+    // const productRef= doc(db, "productos", "zfDGBUpDRBzeIAowlgrF")
+    
+    // const getProducts = () => {
+    //     getDoc(productRef).then((snapshot) => {
+    //         if(snapshot.exists()){
+    //             const miProducto = {
+    //                 id: snapshot.id,
+    //                 ...snapshot.data()
+    //             }
+    //             console.log( miProducto )
+    //         }
+    //     })
+    // }
+    // getProducts()
+
+    // const productRef= collection(db, "productos")
+    // const productRef= collection(db, "productos")
+    
+    const productsRefFilter = query(
+        collection(db, "productos"),
+        where("categoria", "==", "encendedores"),
+        // where("stock", "<", 10),
+        limit(10)
+    )
+    const getProducts = async () =>{
+        const data = await getDocs(productsRefFilter)
+        const dataFiltrada = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
+        console.log(dataFiltrada)
+        
+        }
+    
+        getProducts()
+    }, []);
 
     if (isLoading) {
         return <div className='cargando'>
@@ -63,7 +95,7 @@ useEffect(() => {
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <p><strong>Stock:</strong> {product.stock}</p>
                         <ItemCount/>
-                        <button onClick={() => agregarAlCarrito(products)}>Agregar al carrito</button>
+                        <button className='botoncarrito' onClick={() => agregarAlCarrito({descripcion: product.descripcion, precio: product.precio, quantity: ItemCount})}>Agregar al carrito</button>
                         <p><strong></strong> {product.info}</p>
                     </div>
                 ))

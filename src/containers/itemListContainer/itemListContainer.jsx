@@ -4,6 +4,8 @@ import hechohumo2 from '../../components/img/hechohumo2.png';
 import { getAllProducts } from '../../data/items';
 import ItemCount from '../../components/itemcount/ItemCount';
 import "../../components/componente/estilos.css"
+import { collection, doc, getDoc, getDocs, limit, query, where } from "firebase/firestore"
+import { db } from '../../firebase/client';
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -26,6 +28,16 @@ const ItemListContainer = () => {
         };
 
         fetchProducts();
+
+        const productRef= collection(db, "productos")
+    const getProducts = async () =>{
+        const data = await getDocs(productRef)
+        const dataFiltrada = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
+        console.log(dataFiltrada)
+        
+        }
+    
+        getProducts()
     }, []);
 
     if (isLoading) {

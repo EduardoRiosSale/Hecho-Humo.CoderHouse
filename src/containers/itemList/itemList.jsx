@@ -5,6 +5,8 @@ import hechohumo2 from '../../components/img/hechohumo2.png'
 import { Link } from 'react-router-dom';
 import ItemCount from '../../components/itemcount/ItemCount';
 import "../../components/componente/estilos.css"
+import { collection, doc, getDoc, getDocs, limit, query, where } from "firebase/firestore"
+import { db } from '../../firebase/client';
 
 function ItemList() {
     const [products, setProducts] = useState([]);
@@ -17,7 +19,7 @@ function ItemList() {
 
     console.log(idCategory)
 
-useEffect(() => {
+    useEffect(() => {
         setIsLoading(true);
         setError(null);
 
@@ -30,7 +32,24 @@ useEffect(() => {
                 setError(err);
                 setIsLoading(false);
             });
-    }, [idCategory]);
+        
+        const productsRefFilter = query(
+            collection(db, "productos"),
+            where("categoria", "==", "ceniceros"),
+            // where("stock", "<", 10),
+            limit(10)
+        )
+        const getProducts = async () =>{
+            const data = await getDocs(productsRefFilter)
+            const dataFiltrada = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
+            console.log(dataFiltrada)
+            
+            }
+        
+            getProducts()
+    }, []);
+
+    
 
     if (isLoading) {
         return <div className='cargando'>
