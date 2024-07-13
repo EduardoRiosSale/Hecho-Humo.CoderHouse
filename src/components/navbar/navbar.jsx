@@ -11,7 +11,7 @@ export default class App extends Component {
     render() {
     return (
         <div>
-            <div style={{display: "flex", justifyContent: "center"}}>
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10px"}}>
             <Link to={'/'}>
                     <Logo />
                 </Link>
@@ -21,7 +21,9 @@ export default class App extends Component {
                     <Link to={'https://wa.me/541168226178'}>
                     <Whatsapp />
                     </Link>
+                    <CartWidget />
                     </div>
+                    
                 
                 
         <Collapse id="navbarToggleExternalContent">
@@ -32,7 +34,7 @@ export default class App extends Component {
             <Link to={"/"}>
             <Button outline warning my="2 sm-0">Buscar</Button>
             </Link>
-            <CartWidget />
+            
         </Form>
             <nav className="barra">
                 <div className="btn">

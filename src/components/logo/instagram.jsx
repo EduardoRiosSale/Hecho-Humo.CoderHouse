@@ -6,7 +6,7 @@ const Insta = () => {
         
         <div style={{display: "flex", objectFit: "cover"}}>
             
-            <img className='img' src={insta} style={{width: "15px", height: "15px", margin: "10px", borderRadius: "50px"}} />
+            <img className='img' src={insta} style={{width: "20px", height: "20px", margin: "10px", borderRadius: "50px"}} />
             
         </div>
         

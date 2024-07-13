@@ -4,35 +4,17 @@ import { useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png'
 import "../../components/componente/estilos.css"
 import ItemCount from '../../components/itemcount/ItemCount'
-import { CartContext } from '../../components/cartcontext/CartContext';
+import { CartContext } from '../../components/context/CartContext';
 
 
 
 
-function ItemDetailContainer({item}) {
-    
-    const { carrito, agregarAlCarrito } = useContext(CartContext);
-    console.log(carrito);
-
-    const [cantidad, setCantidad] = useState(5);
-
-    const handleRestar = () => {
-        cantidad > 1 && setCantidad(cantidad - 1)
-    }
-
-    const handleSumar = () => {
-        cantidad < item.stock && setCantidad(cantidad + 1)
-    }
-    const handleAgregar = () => {
-        const itemAgregado = {...item, cantidad}
-        console.log(itemAgregado)
-    }
-    
+function ItemDetailContainer({}) {
 
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    
+    const { agregarAlCarrito } = useContext(CartContext)
     const { id } = useParams();
 
     console.log(id)
@@ -80,8 +62,8 @@ useEffect(() => {
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <p><strong>Stock:</strong> {product.stock}</p>
-                        <ItemCount
-                        handleAgregar={() => { agregarAlCarrito(item, cantidad) }} />
+                        <ItemCount/>
+                        <button onClick={() => agregarAlCarrito(products)}>Agregar al carrito</button>
                         <p><strong></strong> {product.info}</p>
                     </div>
                 ))

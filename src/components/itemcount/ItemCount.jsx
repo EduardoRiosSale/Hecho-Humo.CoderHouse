@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-const itemCount = ({ handleAgregar }) => {
-  const [contador, setContador] = useState(1);
 
+const itemCount = () => {
+  const [contador, setContador] = useState(1);
+  
   const incrementar = () => {
     setContador(contador + 1);
   };
@@ -21,7 +22,7 @@ const itemCount = ({ handleAgregar }) => {
       <button className='contador' onClick={incrementar}> + </button>
       <button  className='contador' onClick={decrementar}> - </button>
       </div>
-      <button className="botoncarrito" onClick={handleAgregar}>Agregar al carrito</button>
+      
     </div>
   );
 };

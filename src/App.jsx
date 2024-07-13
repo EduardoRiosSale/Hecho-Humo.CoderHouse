@@ -6,19 +6,17 @@ import ItemDetail from './containers/itemDetail/itemDetail';
 import Items from './containers/items/items'
 import BuscadorItem from './containers/practica/buscador';
 import { useState } from 'react';
-import { CartContext } from './components/cartcontext/CartContext';
+import { CartComponentContext } from './components/context/CartContext';
 
 function App() {
 
-  const [carrito, setCarrito] = useState([]);
-
-  
   return (
-    <div>
-    <CartContext.Provider value={{ carrito }}>
+    
+    <CartComponentContext>
+    
   <BrowserRouter>
     
-      <nav>
+      
         <Navbar />
         <Routes>
           <Route path='/Buscador/:descripcion' element={< BuscadorItem/>}/>
@@ -27,10 +25,10 @@ function App() {
           <Route path='/' element={<ItemListContainer />}/>
         </Routes>
         
-      </nav>
+      
     </BrowserRouter>
-    </CartContext.Provider>
-    </div>
+    </CartComponentContext>
+    
   )
 }
 
