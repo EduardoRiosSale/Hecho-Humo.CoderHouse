@@ -108,6 +108,8 @@ body{
     color: red; 
     border-Radius: 50px; 
     border-color: red;
+    justify-content: center;
+    display: flex;
 }
 
 .cargando{
@@ -146,5 +148,8 @@ body{
     border-color: brown;
     border-style: groove;
     color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     
 }
