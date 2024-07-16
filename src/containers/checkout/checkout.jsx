@@ -27,17 +27,21 @@ const Checkout = () => {
             items: cart,
             total: cart.reduce((total, item) => total + item.precio, 0),
         };
-        
-        
-        setNombre("");
-        setApellido("");
-        setTelefono("");
-        setEmail("");
-        
-
-        const orderCollection = collection(db, 'orders')
-        addDoc(orderCollection, data).then(({id}) =>setIdCompra(id))
-        console.log(data)
+    
+        if(nombre !== '' && apellido !== '' && telefono !== '' && email !== '') {
+            const orderCollection = collection(db, 'orders');
+            addDoc(orderCollection, data).then(({id}) => {
+                setIdCompra(id);
+                setNombre('');
+                setApellido('');
+                setTelefono('');
+                setEmail('');
+                clearCart(); 
+                alert('Compra realizada con éxito');
+            });
+        } else {
+            alert('Por favor completa todos los campos antes de finalizar la compra');
+        }
     };
 
     const total = cart.reduce((total, item) => total + item.precio, 0);
@@ -71,10 +75,12 @@ const Checkout = () => {
                 <input type="text" placeholder="Ingresa tu apellido..." value={apellido} onChange={(e) => setApellido(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu teléfono..." value={telefono} onChange={(e) => setTelefono(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu email..." value={email} onChange={(e) => setEmail(e.target.value)} />
-                <button className="botoncarritoF" onClick={finalizarCompra} onClickCapture={clearCart} >Finalizar compra</button>
+                <button className="botoncarritoF" onClick={finalizarCompra} disabled={cart.length === 0 }>Finalizar compra</button>
                 <p style={{justifyContent: "center", display: "flex"}}>Tu código de compra es:</p> 
                 <p className="botoncarrito" style={{color: "", fontStyle:"oblique", justifyContent:"center"}}> {idCompra} </p>
                 </div>
+                
+                
             </div>
 
     );
