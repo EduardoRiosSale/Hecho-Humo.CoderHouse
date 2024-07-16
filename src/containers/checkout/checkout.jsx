@@ -62,7 +62,9 @@ const Checkout = () => {
                     </p>
                 ))}
             </ul>
-            <p className="botoncarrito" style={{display: "flex", justifyContent:"center"}}>Total: ${total}</p>
+            <div className="bcart">
+            <p className="botoncarrito">Total: ${total}</p>
+            </div>
             <div className="checkout">
                 <h4>Por favor, completa con tus datos</h4>
                 <input type="text" placeholder="Ingresa tu nombre..." value={nombre} onChange={(e) => setNombre(e.target.value)} />

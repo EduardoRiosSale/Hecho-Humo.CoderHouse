@@ -60,22 +60,25 @@ function ItemDetailContainer() {
             {products.length > 0 ? (
                 products.map(product => (
                     <div className="Dlista" key={product.id}>
-                        <img
-                            src={product.imagen}
-                            alt={product.producto}
-                            style={{ width: '150px', height: '150px' }}
-                            onError={(e) => { e.target.onerror = null; e.target.src = placeholderImage; }}
-                        />
+                        <Link to={`/Unidad/${product.id}`}>
+                            <img
+                                src={product.imagen}
+                                style={{ width: '100px', height: '100px', justifyContent: 'center' }}
+                                onError={e => { e.target.src = 'path/to/placeholder/image.jpg'; }}
+                                alt={product.categoria}
+                            />
+                            </Link>
                         <p><strong>Producto:</strong> {product.categoria}</p>
                         <p><strong>Descripción:</strong> {product.descripcion}</p>
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <p><strong>Stock:</strong> {product.stock}</p>
                         <ItemCount product={product} agregarAlCarrito={agregarAlCarrito} />
-                        
+                        <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
                         <button className='botoncarrito' onClick={() => agregarAlCarrito({ descripcion: product.descripcion, precio: product.precio, ...product })}>Agregar al carrito</button>
                         <Link to={"/cart"}>
                         <button className='botoncarrito' style={{margin: "10px"}}>Ver carrito</button>
                         </Link>
+                        </div>
                     </div>
                 ))
             ) : (

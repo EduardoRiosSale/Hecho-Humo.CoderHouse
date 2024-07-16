@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png';
 import "../../components/componente/estilos.css"
-import { collection, doc, getDoc, getDocs, limit, query, where } from "firebase/firestore"
+import { collection,  getDocs } from "firebase/firestore"
 import { db } from '../../firebase/client';
 import { LoadingOutlined } from '@ant-design/icons'
 
