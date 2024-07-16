@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png';
-import { getAllProducts } from '../../data/items';
-import ItemCount from '../../components/itemcount/ItemCount';
 import "../../components/componente/estilos.css"
 import { collection, doc, getDoc, getDocs, limit, query, where } from "firebase/firestore"
 import { db } from '../../firebase/client';
@@ -13,33 +11,22 @@ const ItemListContainer = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            setIsLoading(true);
-            setError(null);
-
+        const fetchData = async () => {
             try {
-                const res = await getAllProducts();
-                setProducts(res);
-            } catch (err) {
-                setError(err);
+                const productRef = collection(db, 'productos');
+                const data = await getDocs(productRef);
+                const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+                setProducts(parsedData);
+                setIsLoading(false);
+                console.log(data)
+            } catch (error) {
+                setIsLoading(false);
+                setError(error);
             }
-
-            setIsLoading(false);
         };
-
-        fetchProducts();
-
-        const productRef= collection(db, "productos")
-        const getProducts = async () =>{
-        const data = await getDocs(productRef)
-        const dataFiltrada = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
-        console.log(dataFiltrada)
         
-        }
-    
-        getProducts()
+        fetchData();
     }, []);
-
     if (isLoading) {
         return (
             <div className='cargando'>
@@ -55,15 +42,15 @@ const ItemListContainer = () => {
 
     return (
         <div className='productos'>
-            <h1 style={{display: "flex",color: "#F9C200", justifyContent: "center"}}>Productos</h1>
+            <h1 style={{ display: 'flex', color: '#F9C200', justifyContent: 'center' }}>Productos</h1>
             {products.length > 0 ? (
                 products.map(product => (
                     <div key={product.id}>
-                        <div className='lista' style={{justifyContent: "center"}}>
+                        <div className='lista' style={{ justifyContent: 'center' }}>
                             <img
-                                src={product.img}
-                                style={{ width: '100px', height: '100px', justifyContent: "center" }}
-                                onError={(e) => { e.target.src = 'path/to/placeholder/image.jpg'; }}
+                                src={product.imagen}
+                                style={{ width: '100px', height: '100px', justifyContent: 'center' }}
+                                onError={e => { e.target.src = 'path/to/placeholder/image.jpg'; }}
                                 alt={product.categoria}
                             />
                             <div>Producto: {product.categoria}</div>
@@ -71,7 +58,7 @@ const ItemListContainer = () => {
                             <div>Precio: ${product.precio}</div>
                             <p>Stock: {product.stock}</p>
                             <Link to={`/Unidad/${product.id}`}>
-                                <p style={{ color: "#F9C200" }}>Ver más</p>
+                                <p style={{ color: '#F9C200' }}>Ver más</p>
                             </Link>
                         </div>
                     </div>
