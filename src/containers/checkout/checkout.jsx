@@ -46,7 +46,7 @@ const Checkout = () => {
             </ul>
             <p>Total: ${total}</p>
             <div className="checkout">
-                <h4>Por favor, completa tus datos</h4>
+                <h4>Por favor, completa con tus datos</h4>
                 <input type="text" placeholder="Ingresa tu nombre..." value={nombre} onChange={(e) => setNombre(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu apellido..." value={apellido} onChange={(e) => setApellido(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu teléfono..." value={telefono} onChange={(e) => setTelefono(e.target.value)} />

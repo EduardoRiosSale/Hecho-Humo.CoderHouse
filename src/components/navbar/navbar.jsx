@@ -25,16 +25,13 @@ export default class App extends Component {
                     <CartWidget />
                     </Link>
                     </div>
-                    
-                
-                
         <Collapse id="navbarToggleExternalContent">
     <BDiv >
         <header>
         <Form  display="flex" p="2" my="2 lg-1" >
-            <Form.Input type="" placeholder="Buscador" mr="sm-1" />
+            
             <Link to={"/"}>
-            <Button outline warning my="2 sm-0">Buscar</Button>
+            
             </Link>
             
         </Form>

@@ -32,6 +32,7 @@ h1{
     justify-content: center;
     align-items: center;
 }
+
 body{
     display: flex;
     align-items: center;
@@ -140,6 +141,7 @@ body{
     gap: 10px;
     border-color: #F9C200;
     color: aliceblue;
+    input-security: auto;
 }
 
 .Lcheckout{
