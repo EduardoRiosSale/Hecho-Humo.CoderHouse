@@ -126,6 +126,7 @@ body{
     gap: 10px;
     border-color: dimgrey;
     border-style: inset;
+    color: aliceblue;
 }
 
 .checkout{
@@ -136,6 +137,7 @@ body{
     margin: 10px;
     gap: 10px;
     border-color: #F9C200;
+    color: aliceblue;
 }
 
 .Lcheckout{
@@ -143,5 +145,6 @@ body{
     list-style: none;
     border-color: brown;
     border-style: groove;
+    color: aliceblue;
     
 }
