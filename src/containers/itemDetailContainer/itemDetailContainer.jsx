@@ -73,6 +73,7 @@ function ItemDetailContainer() {
                         <p><strong>Precio:</strong> {product.precio}</p>
                         <p><strong>Stock:</strong> {product.stock}</p>
                         <ItemCount product={product} agregarAlCarrito={agregarAlCarrito} />
+                        
                         <button className='botoncarrito' onClick={() => agregarAlCarrito({ descripcion: product.descripcion, precio: product.precio, ...product })}>Agregar al carrito</button>
                         <Link to={"/cart"}>
                         <button className='botoncarrito' style={{margin: "10px"}}>Ver carrito</button>

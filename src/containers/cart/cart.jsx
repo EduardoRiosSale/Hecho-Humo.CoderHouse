@@ -20,7 +20,7 @@ const Cart = () => {
 
     return (
         <div style={{ color: "aliceblue" }}>
-            <h2 style={{justifyContent: "center"}}>Mi carrito</h2>
+            <h2 style={{justifyContent: "center", display: "flex"}}>Mi carrito</h2>
             <Link to={"/"}>
             <button className="botoncarrito" style={{fontSize: "20px", margin: "10px", width:"10px", height:"10px", display: "flex"}}> <LeftCircleFilled /></button>
             </Link>
@@ -33,7 +33,7 @@ const Cart = () => {
                     </p>
                 ))}
             </div>
-            <p style={{justifyContent: "center"}}>Total: ${Total}</p>
+            <p style={{justifyContent: "center", display: "flex"}}>Total: ${Total}</p>
             <Link to={"/Checkout"}>
                 <button className="botoncarrito" style={{justifyContent: "center"}} onClick={finalizarCompra}>Finalizar compra</button>
             </Link>

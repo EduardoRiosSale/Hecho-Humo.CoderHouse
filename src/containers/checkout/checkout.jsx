@@ -45,12 +45,12 @@ const Checkout = () => {
 
     return (
         <div style={{ color: "aliceblue" }}>
-            <h2 style={{justifyContent: "center"}}>Finalizando compra</h2>
+            <h2 style={{justifyContent: "center", display: "flex"}}>Finalizando compra</h2>
             
             <Link to={"/"}>
             <button className="botoncarrito" style={{fontSize: "20px", margin: "10px", width:"10px", height:"10px", display: "flex", justifyContent: "center"}}> <LeftCircleFilled /></button>
             </Link>
-            <p style={{justifyContent: "center"}}>Estás llevando:</p>
+            <p style={{justifyContent: "center", display: "flex"}}>Estás llevando:</p>
             <ul className="carrito">
                 {cart.map(product => (
                     <p key={product.id}>
@@ -60,7 +60,7 @@ const Checkout = () => {
                     </p>
                 ))}
             </ul>
-            <p>Total: ${total}</p>
+            <p style={{display: "flex", justifyContent:"center"}}>Total: ${total}</p>
             <div className="checkout">
                 <h4>Por favor, completa con tus datos</h4>
                 <input type="text" placeholder="Ingresa tu nombre..." value={nombre} onChange={(e) => setNombre(e.target.value)} />
@@ -69,9 +69,9 @@ const Checkout = () => {
                 <input type="text" placeholder="Ingresa tu email..." value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div>
-            <button className="botoncarritoF" style={{justifyContent: "center"}} onClick={finalizarCompra} onClickCapture={clearCart} >Finalizar compra</button>
+            <button className="botoncarritoF" style={{justifyContent: "center", alignContent:"center", alignItems:"center"}} onClick={finalizarCompra} onClickCapture={clearCart} >Finalizar compra</button>
             </div>
-                <p style={{justifyContent: "center"}}>Tu código de compra es:</p> <p style={{color: "red", fontStyle:"oblique", justifyContent:"center"}}> {idCompra} </p>
+                <p style={{justifyContent: "center", display: "flex"}}>Tu código de compra es:</p> <p style={{color: "red", fontStyle:"oblique", justifyContent:"center"}}> {idCompra} </p>
             </div>
 
     );
