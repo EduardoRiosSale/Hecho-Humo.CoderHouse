@@ -36,7 +36,7 @@ const Cart = () => {
                     </p>
                 ))}
             </div>
-            <div className="">
+            <div className="bcart">
             <p className="botoncarrito"style={{justifyContent: "center", display: "flex"}}>Total: ${Total}</p>
             <Link to={"/Checkout"}>
                 <button className="botoncarrito" onClick={finalizarCompra}>Finalizar compra</button>

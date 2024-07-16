@@ -16,6 +16,7 @@ const ItemListContainer = () => {
             try {
                 const productRef = collection(db, 'productos');
                 const data = await getDocs(productRef);
+                console.log(data.docs)
                 const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
                 setProducts(parsedData);
                 setIsLoading(false);
@@ -23,6 +24,7 @@ const ItemListContainer = () => {
             } catch (error) {
                 setIsLoading(false);
                 setError(error);
+            
             }
         };
         

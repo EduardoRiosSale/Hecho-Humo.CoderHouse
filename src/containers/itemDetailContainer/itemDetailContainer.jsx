@@ -22,7 +22,6 @@ function ItemDetailContainer() {
             try {
                 const productRef = doc(db, "productos", productId);
                 const categoria = await getDoc(productRef);
-
                 if (categoria.exists) {
                     const miProducto = {
                         id: categoria.id,
@@ -38,7 +37,6 @@ function ItemDetailContainer() {
                 setIsLoading(false);
             }
         };
-
         fetchProduct(id);
     }, [id]);
 
