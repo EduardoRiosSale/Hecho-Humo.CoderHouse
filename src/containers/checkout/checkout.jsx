@@ -32,7 +32,7 @@ const Checkout = () => {
     const totalUnidad = cart.map(item => item.descripcion).join(", ");
 
     return (
-        <div>
+        <div style={{color: "aliceblue"}}>
             <h2>Finalizando compra</h2>
             <p>Estás llevando:</p>
             <ul>
@@ -48,6 +48,7 @@ const Checkout = () => {
             </div>
             <button className="botoncarritoF" onClick={finalizarCompra}>Finalizar compra</button>
         </div>
+
     );
 };
 

@@ -22,7 +22,7 @@ const Cart = () => {
     const Total = cart.reduce((total, item) => total + item.precio, 0)
     
     return(
-        <div><h2>Mi carrito</h2>
+        <div style={{color: "aliceblue"}}><h2>Mi carrito</h2>
             <div className="carrito">
             <div>
             {cart.map((pr, i) => <div key={i}><p>{pr.descripcion}</p> </div> )}
