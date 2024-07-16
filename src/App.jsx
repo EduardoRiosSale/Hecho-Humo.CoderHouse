@@ -7,6 +7,8 @@ import Items from './containers/items/items'
 import BuscadorItem from './containers/practica/buscador';
 import { useState } from 'react';
 import { CartComponentContext } from './components/context/CartContext';
+import Cart from './containers/cart/cart';
+import Checkout from './containers/checkout/checkout';
 
 function App() {
 
@@ -23,6 +25,9 @@ function App() {
           <Route path='/Unidad/:id' element={< ItemDetail/>}/>
           <Route path='/category/:idCategory' element={<Items />}/>
           <Route path='/' element={<ItemListContainer />}/>
+          <Route path='/cart' element={<Cart />}/>
+          <Route path='/checkout' element={<Checkout />}/>
+          
         </Routes>
         
       

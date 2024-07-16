@@ -59,6 +59,7 @@ useEffect(() => {
     const getProducts = async () =>{
         const data = await getDocs(productsRefFilter)
         const dataFiltrada = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
+        
         console.log(dataFiltrada)
         
         }

@@ -101,6 +101,15 @@ body{
     border-color: #F9C200;
 }
 
+.botoncarritoF{
+    background-color: #000000;
+    justify-content: center;
+    align-items: center;
+    color: red; 
+    border-Radius: 50px; 
+    border-color: red;
+}
+
 .cargando{
     display: flex;
     flex-direction: column;
@@ -108,4 +117,31 @@ body{
     align-items: center;
     align-content: center;
     color: aliceblue;
+}
+
+.carrito{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    border-color: dimgrey;
+    border-style: inset;
+}
+
+.checkout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    gap: 10px;
+    border-color: #F9C200;
+}
+
+.Lcheckout{
+    margin: 15px;
+    list-style: none;
+    border-color: brown;
+    border-style: groove;
+    
 }

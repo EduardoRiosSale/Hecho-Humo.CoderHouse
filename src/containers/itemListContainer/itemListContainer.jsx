@@ -30,7 +30,7 @@ const ItemListContainer = () => {
         fetchProducts();
 
         const productRef= collection(db, "productos")
-    const getProducts = async () =>{
+        const getProducts = async () =>{
         const data = await getDocs(productRef)
         const dataFiltrada = data.docs.map((doc) => ({...doc.data(), id: doc.id}))
         console.log(dataFiltrada)

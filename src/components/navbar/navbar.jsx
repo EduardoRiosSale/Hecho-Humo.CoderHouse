@@ -21,7 +21,9 @@ export default class App extends Component {
                     <Link to={'https://wa.me/541168226178'}>
                     <Whatsapp />
                     </Link>
+                    <Link to={'/cart'}>
                     <CartWidget />
+                    </Link>
                     </div>
                     
                 
