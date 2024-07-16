@@ -97,8 +97,8 @@ body{
 }
 
 .botoncarrito{
-    display: inline-flex;
-    flex-direction: column;
+    display: flex;
+    flex-direction:row;
     justify-content: center;
     align-content: center;
     background-color: #040404;
