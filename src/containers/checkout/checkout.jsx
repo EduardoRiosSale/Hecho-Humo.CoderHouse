@@ -2,6 +2,10 @@ import React, { useState, useContext } from "react";
 import { CartContext } from '../../components/context/CartContext';
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/client";
+import { LeftCircleFilled } from '@ant-design/icons'
+import { Link } from "react-router-dom";
+
+
 
 const Checkout = () => {
     const [nombre, setNombre] = useState("");
@@ -11,7 +15,7 @@ const Checkout = () => {
     const [idCompra, setIdCompra] = useState("");
     const { clearCart } = useContext(CartContext);
     const { cart } = useContext(CartContext);
-
+    
     const finalizarCompra = () => {
         const data = {
             buyer: {
@@ -42,6 +46,10 @@ const Checkout = () => {
     return (
         <div style={{ color: "aliceblue" }}>
             <h2>Finalizando compra</h2>
+            
+            <Link to={"/"}>
+            <button className="botoncarrito" style={{fontSize: "20px", margin: "10px", width:"10px", height:"10px", display: "flex"}}> <LeftCircleFilled /></button>
+            </Link>
             <p>Estás llevando:</p>
             <ul className="carrito">
                 {cart.map(product => (
@@ -63,9 +71,9 @@ const Checkout = () => {
             <div>
             <button className="botoncarritoF" onClick={finalizarCompra} onClickCapture={clearCart} >Finalizar compra</button>
             </div>
-                <p>Tu código de compra es: {idCompra}</p>
+                <p>Tu código de compra es:</p> <p style={{color: "red", fontStyle:"oblique"}}> {idCompra} </p>
             </div>
-           
+
     );
 };
 

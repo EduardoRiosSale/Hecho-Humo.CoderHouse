@@ -7,6 +7,8 @@ import { CartContext } from '../../components/context/CartContext';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from '../../firebase/client';
 import { Link } from 'react-router-dom';
+import { LoadingOutlined } from '@ant-design/icons'
+
 
 function ItemDetailContainer() {
     const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +46,7 @@ function ItemDetailContainer() {
         return (
             <div className="cargando">
                 <img className="img" src={hechohumo2} alt="Cargando productos" />
+                <div><LoadingOutlined /></div>
                 Cargando productos...
             </div>
         );
@@ -72,7 +75,7 @@ function ItemDetailContainer() {
                         <ItemCount product={product} agregarAlCarrito={agregarAlCarrito} />
                         <button className='botoncarrito' onClick={() => agregarAlCarrito({ descripcion: product.descripcion, precio: product.precio, ...product })}>Agregar al carrito</button>
                         <Link to={"/cart"}>
-                        <button className='botoncarrito'>Ver carrito</button>
+                        <button className='botoncarrito' style={{margin: "10px"}}>Ver carrito</button>
                         </Link>
                     </div>
                 ))

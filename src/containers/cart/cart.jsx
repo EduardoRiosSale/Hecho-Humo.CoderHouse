@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from '../../components/context/CartContext';
 import { Link } from "react-router-dom";
-
+import { DeleteOutlined, LeftCircleFilled } from '@ant-design/icons'
 const Cart = () => {
 
     const { cart, clearCart } = useContext(CartContext);
@@ -22,7 +22,7 @@ const Cart = () => {
         <div style={{ color: "aliceblue" }}>
             <h2>Mi carrito</h2>
             <Link to={"/"}>
-            <button className="botoncarrito">Volver</button>
+            <button className="botoncarrito" style={{fontSize: "20px", margin: "10px", width:"10px", height:"10px", display: "flex"}}> <LeftCircleFilled /></button>
             </Link>
             <div className="carrito">
             {cart.map(product => (
@@ -33,11 +33,11 @@ const Cart = () => {
                     </p>
                 ))}
             </div>
-            <p>Total: ${Total}</p>
+            <p style={{justifyContent: "center"}}>Total: ${Total}</p>
             <Link to={"/Checkout"}>
                 <button className="botoncarrito" onClick={finalizarCompra}>Finalizar compra</button>
             </Link>
-            <button className="botoncarrito" onClick={() => clearCart()}>Borrar Carrito</button>
+            <button className="botoncarrito" style={{margin:"10px"}} onClick={() => clearCart()}><DeleteOutlined /></button>
         </div>
     );
 }

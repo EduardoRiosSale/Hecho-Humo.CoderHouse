@@ -4,7 +4,7 @@ import hechohumo2 from '../../components/img/hechohumo2.png';
 import "../../components/componente/estilos.css"
 import { collection, doc, getDoc, getDocs, limit, query, where } from "firebase/firestore"
 import { db } from '../../firebase/client';
-
+import { LoadingOutlined } from '@ant-design/icons'
 const ItemList = () => {
     const [products, setProducts] = useState("Productos");
     const [isLoading, setIsLoading] = useState(true);
@@ -37,6 +37,7 @@ const ItemList = () => {
         return (
             <div className='cargando'>
                 <img className='img' src={hechohumo2} />
+                <div><LoadingOutlined /></div>
                 <div>Cargando productos...</div>
             </div>
         );
