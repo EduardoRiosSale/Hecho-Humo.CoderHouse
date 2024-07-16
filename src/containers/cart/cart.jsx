@@ -20,7 +20,7 @@ const Cart = () => {
 
     return (
         <div style={{ color: "aliceblue" }}>
-            <h2>Mi carrito</h2>
+            <h2 style={{justifyContent: "center"}}>Mi carrito</h2>
             <Link to={"/"}>
             <button className="botoncarrito" style={{fontSize: "20px", margin: "10px", width:"10px", height:"10px", display: "flex"}}> <LeftCircleFilled /></button>
             </Link>
@@ -35,9 +35,9 @@ const Cart = () => {
             </div>
             <p style={{justifyContent: "center"}}>Total: ${Total}</p>
             <Link to={"/Checkout"}>
-                <button className="botoncarrito" onClick={finalizarCompra}>Finalizar compra</button>
+                <button className="botoncarrito" style={{justifyContent: "center"}} onClick={finalizarCompra}>Finalizar compra</button>
             </Link>
-            <button className="botoncarrito" style={{margin:"10px"}} onClick={() => clearCart()}><DeleteOutlined /></button>
+            <button className="botoncarrito" style={{margin:"10px", justifyContent:"center"}} onClick={() => clearCart()}><DeleteOutlined /></button>
         </div>
     );
 }
