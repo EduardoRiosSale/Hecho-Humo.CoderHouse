@@ -51,12 +51,14 @@ const ItemListContainer = () => {
                 products.map(product => (
                     <div key={product.id}>
                         <div className='lista' style={{ justifyContent: 'center' }}>
+                        <Link to={`/Unidad/${product.id}`}>
                             <img
                                 src={product.imagen}
                                 style={{ width: '100px', height: '100px', justifyContent: 'center' }}
                                 onError={e => { e.target.src = 'path/to/placeholder/image.jpg'; }}
                                 alt={product.categoria}
                             />
+                            </Link>
                             <div>Producto: {product.categoria}</div>
                             <div>Descripción: {product.descripcion}</div>
                             <div>Precio: ${product.precio}</div>
