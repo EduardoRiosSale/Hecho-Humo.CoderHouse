@@ -16,13 +16,15 @@
 
 
 .boton{
+    display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 1px;
+    margin: 15px;
     background-image: url(../img/hechohumo.jpg);
     background-size: cover;
     color: #F9C200;
     font-size: small;
-    font-family: cursive;
+    font-family: ;
     height: 70px;
     width: 70px;
 
@@ -95,12 +97,16 @@ body{
 }
 
 .botoncarrito{
-    background-color: #000000;
+    display: inline-flex;
+    flex-direction: column;
     justify-content: center;
+    align-content: center;
+    background-color: #040404;
     align-items: center;
     color: #F9C200; 
     border-Radius: 50px; 
     border-color: #F9C200;
+    margin: 10px;
 }
 
 .botoncarritoF{

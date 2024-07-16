@@ -45,11 +45,13 @@ const Checkout = () => {
 
     return (
         <div style={{ color: "aliceblue" }}>
+            <div style={{display:"flex", justifyContent:"center",flexDirection:"row-reverse"}}>
             <h2 style={{justifyContent: "center", display: "flex"}}>Finalizando compra</h2>
             
             <Link to={"/"}>
             <button className="botoncarrito" style={{fontSize: "20px", margin: "10px", width:"10px", height:"10px", display: "flex", justifyContent: "center"}}> <LeftCircleFilled /></button>
             </Link>
+            </div>
             <p style={{justifyContent: "center", display: "flex"}}>Estás llevando:</p>
             <ul className="carrito">
                 {cart.map(product => (
@@ -60,18 +62,19 @@ const Checkout = () => {
                     </p>
                 ))}
             </ul>
-            <p style={{display: "flex", justifyContent:"center"}}>Total: ${total}</p>
+            <p className="botoncarrito" style={{display: "flex", justifyContent:"center"}}>Total: ${total}</p>
             <div className="checkout">
                 <h4>Por favor, completa con tus datos</h4>
                 <input type="text" placeholder="Ingresa tu nombre..." value={nombre} onChange={(e) => setNombre(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu apellido..." value={apellido} onChange={(e) => setApellido(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu teléfono..." value={telefono} onChange={(e) => setTelefono(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu email..." value={email} onChange={(e) => setEmail(e.target.value)} />
+                <button className="botoncarritoF" onClick={finalizarCompra} onClickCapture={clearCart} >Finalizar compra</button>
             </div>
-            <div>
-            <button className="botoncarritoF" style={{justifyContent: "center", alignContent:"center", alignItems:"center"}} onClick={finalizarCompra} onClickCapture={clearCart} >Finalizar compra</button>
-            </div>
-                <p style={{justifyContent: "center", display: "flex"}}>Tu código de compra es:</p> <p style={{color: "red", fontStyle:"oblique", justifyContent:"center"}}> {idCompra} </p>
+            <div className="">
+                <p style={{justifyContent: "center", display: "flex"}}>Tu código de compra es:</p> 
+                <p className="botoncarrito" style={{color: "", fontStyle:"oblique", justifyContent:"center"}}> {idCompra} </p>
+                </div>
             </div>
 
     );

@@ -20,10 +20,13 @@ const Cart = () => {
 
     return (
         <div style={{ color: "aliceblue" }}>
-            <h2 style={{justifyContent: "center", display: "flex"}}>Mi carrito</h2>
+            <div style={{display:"flex", justifyContent:"center",flexDirection:"row-reverse", }}>
+            <h2>Mi Carrito</h2>
+            
             <Link to={"/"}>
-            <button className="botoncarrito" style={{fontSize: "20px", margin: "10px", width:"10px", height:"10px", display: "flex"}}> <LeftCircleFilled /></button>
+            <button className="botoncarrito" style={{fontSize: "20px", margin: "10px", width:"10px", height:"10px", display: "flex", justifyContent: "center"}}> <LeftCircleFilled /></button>
             </Link>
+            </div>
             <div className="carrito">
             {cart.map(product => (
                     <p key={product.id}>
@@ -33,11 +36,13 @@ const Cart = () => {
                     </p>
                 ))}
             </div>
-            <p style={{justifyContent: "center", display: "flex"}}>Total: ${Total}</p>
+            <div className="">
+            <p className="botoncarrito"style={{justifyContent: "center", display: "flex"}}>Total: ${Total}</p>
             <Link to={"/Checkout"}>
-                <button className="botoncarrito" style={{justifyContent: "center"}} onClick={finalizarCompra}>Finalizar compra</button>
+                <button className="botoncarrito" onClick={finalizarCompra}>Finalizar compra</button>
             </Link>
-            <button className="botoncarrito" style={{margin:"10px", justifyContent:"center"}} onClick={() => clearCart()}><DeleteOutlined /></button>
+            <button className="botoncarrito" onClick={() => clearCart()}><DeleteOutlined /></button>
+            </div>
         </div>
     );
 }
