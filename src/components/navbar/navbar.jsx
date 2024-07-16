@@ -40,16 +40,16 @@ export default class App extends Component {
                     <Link to={'/'}>
                         <button className="boton">Productos</button>
                     </Link>
-                    <Link to={'/Category/Ceniceros'}>
+                    <Link to={'/Categoria/Ceniceros'}>
                         <button className="boton">Ceniceros</button>
                     </Link>
-                    <Link to={'/Category/Encendedores'}>
+                    <Link to={'/Categoria/Encendedores'}>
                         <button className="boton">Encendedores</button>
                     </Link>
-                    <Link to={'/Category/Papelillos'}>
+                    <Link to={'/Categoria/Papelillos'}>
                         <button className="boton">Papelillos</button>
                     </Link>
-                    <Link to={'/Category/Reprocan'}>
+                    <Link to={'/Categoria/Reprocan'}>
                         <button className="boton">Reprocan</button>
                     </Link>
 

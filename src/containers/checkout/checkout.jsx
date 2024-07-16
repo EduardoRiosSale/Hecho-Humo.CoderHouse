@@ -1,12 +1,15 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from '../../components/context/CartContext';
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase/client";
 
 const Checkout = () => {
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
     const [telefono, setTelefono] = useState("");
     const [email, setEmail] = useState("");
-
+    const [idCompra, setIdCompra] = useState("");
+    const { clearCart } = useContext(CartContext);
     const { cart } = useContext(CartContext);
 
     const finalizarCompra = () => {
@@ -20,16 +23,21 @@ const Checkout = () => {
             items: cart,
             total: cart.reduce((total, item) => total + item.precio, 0),
         };
-        console.log(data);
-
+        
+        
         setNombre("");
         setApellido("");
         setTelefono("");
         setEmail("");
+        
+
+        const orderCollection = collection(db, 'orders')
+        addDoc(orderCollection, data).then(({id}) =>setIdCompra(id))
+        console.log(data)
     };
 
     const total = cart.reduce((total, item) => total + item.precio, 0);
-    const totalUnidad = cart.map(item => item.descripcion).join(", ");
+
 
     return (
         <div style={{ color: "aliceblue" }}>
@@ -52,8 +60,12 @@ const Checkout = () => {
                 <input type="text" placeholder="Ingresa tu teléfono..." value={telefono} onChange={(e) => setTelefono(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu email..." value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
-            <button className="botoncarritoF" onClick={finalizarCompra}>Finalizar compra</button>
-        </div>
+            <div>
+            <button className="botoncarritoF" onClick={finalizarCompra} onClickCapture={clearCart} >Finalizar compra</button>
+            </div>
+                <p>Tu código de compra es: {idCompra}</p>
+            </div>
+           
     );
 };
 

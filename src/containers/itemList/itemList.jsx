@@ -1,32 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import hechohumo2 from '../../components/img/hechohumo2.png';
 import "../../components/componente/estilos.css"
 import { collection, doc, getDoc, getDocs, limit, query, where } from "firebase/firestore"
 import { db } from '../../firebase/client';
 
 const ItemList = () => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState("Productos");
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const categoria = useParams().categoria
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const productRef = collection(db, 'productos');
-                const data = await getDocs(productRef);
-                const parsedData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-                setProducts(parsedData);
+        const productosRef = collection(db, "productos");
+        const q = categoria ? query(productosRef, where("categoria", "==", categoria)) : productosRef;
+    
+        getDocs(q)
+            .then((resp) => {
+                setProducts(
+                    resp.docs.map((doc) => {
+                        return { ...doc.data(), id: doc.id }
+                        
+                    })
+                    
+                );
                 setIsLoading(false);
-                console.log(data)
-            } catch (error) {
+            })
+            .catch((error) => {
+                setError(error); 
                 setIsLoading(false);
-                setError(error);
-            }
-        };
-        
-        fetchData();
-    }, []);
+            });
+    
+    }, [categoria]);
     if (isLoading) {
         return (
             <div className='cargando'>
