@@ -135,6 +135,7 @@ body{
     justify-content: center;
     align-items: center;
     align-content: center;
+    text-align: center;
     flex-direction: row;
     gap: 10px;
     border-color: dimgrey;

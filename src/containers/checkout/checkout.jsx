@@ -70,8 +70,6 @@ const Checkout = () => {
                 <input type="text" placeholder="Ingresa tu teléfono..." value={telefono} onChange={(e) => setTelefono(e.target.value)} />
                 <input type="text" placeholder="Ingresa tu email..." value={email} onChange={(e) => setEmail(e.target.value)} />
                 <button className="botoncarritoF" onClick={finalizarCompra} onClickCapture={clearCart} >Finalizar compra</button>
-            </div>
-            <div className="">
                 <p style={{justifyContent: "center", display: "flex"}}>Tu código de compra es:</p> 
                 <p className="botoncarrito" style={{color: "", fontStyle:"oblique", justifyContent:"center"}}> {idCompra} </p>
                 </div>
